@@ -1,0 +1,40 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "lslx",
+      "camelcase": "Lslx",
+      "title": "Linden Scripting Language Extended",
+      "scope": "source.lslx",
+      "file-types": [
+        "lslx",
+        "lsl"
+      ],
+      "injection-regex": "^lslx$",
+      "class-name": "TreeSitterLslx"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Tree-sitter parser for Linden Scripting Language Extended",
+    "authors": [
+      {
+        "name": "Doug Smith",
+        "email": "dcsmith926@gmail.com"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/dcsmith926/tree-sitter-lslx"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}

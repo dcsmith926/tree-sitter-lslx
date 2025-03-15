@@ -1,0 +1,184 @@
+=============
+default state
+=============
+
+default {
+    state_entry() {
+    }
+}
+
+---
+
+(script
+    (state_definition
+        (state_name_declaration)
+        (event_handler
+            name: (identifier)
+            parameters: (parameter_list)
+            body: (block)
+        )
+    )
+)
+
+=============
+named state
+=============
+
+state test {
+    state_entry() {
+    }
+}
+
+---
+
+(script
+    (state_definition
+        (state_name_declaration
+            name: (identifier)
+        )
+        (event_handler
+            name: (identifier)
+            parameters: (parameter_list)
+            body: (block)
+        )
+    )
+)
+
+=========================
+event handler with params
+=========================
+
+default {
+    link_message(integer sender_num, integer num, string str, key id) {
+    }
+}
+
+---
+
+(script
+    (state_definition
+        (state_name_declaration)
+        (event_handler
+            name: (identifier)
+            parameters: (parameter_list
+                (parameter
+                    type: (type)
+                    name: (identifier)
+                )
+                (parameter
+                    type: (type)
+                    name: (identifier)
+                )
+                (parameter
+                    type: (type)
+                    name: (identifier)
+                )
+                (parameter
+                    type: (type)
+                    name: (identifier)
+                )
+            )
+            body: (block)
+        )
+    )
+)
+
+=======
+imports
+=======
+
+import foo from "example.lslx";
+import bar, baz from "example2.lslx";
+
+---
+
+(script
+    (import_statement
+        (import_specifier
+            name: (identifier)
+        )
+        source: (string
+            (unescaped_string_fragment)
+        )
+    )
+    (import_statement
+        (import_specifier
+            name: (identifier)
+        )
+        (import_specifier
+            name: (identifier)
+        )
+        source: (string
+            (unescaped_string_fragment)
+        )
+    )
+)
+
+=================
+import with alias
+=================
+
+import foo as bar, baz as qux from "example.lslx";
+
+---
+
+(script
+    (import_statement
+        (import_specifier
+            name: (identifier)
+            alias: (identifier)
+        )
+        (import_specifier
+            name: (identifier)
+            alias: (identifier)
+        )
+        source: (string
+            (unescaped_string_fragment)
+        )
+    )
+)
+
+===============================
+function definition without params
+===============================
+
+string foo() {
+}
+
+---
+
+(script
+    (function_definition
+        return_type: (type)
+        name: (identifier)
+        parameters: (parameter_list)
+        body: (block)
+    )
+)
+
+===============================
+function definition with params
+===============================
+
+string foo(integer x, string y) {
+}
+
+---
+
+(script
+    (function_definition
+        return_type: (type)
+        name: (identifier)
+        parameters: (parameter_list
+            (parameter
+                type: (type)
+                name: (identifier)
+            )
+            (parameter
+                type: (type)
+                name: (identifier)
+            )
+        )
+        body: (block)
+    )
+)

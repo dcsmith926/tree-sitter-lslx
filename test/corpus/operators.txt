@@ -1,0 +1,538 @@
+===========
+unary minus
+===========
+
+-1;
+
+---
+
+(script
+    (expr_statement
+        (unary_expression
+            operand: (integer_dec)
+        )
+    )
+)
+
+===========
+logical not 
+===========
+
+!1;
+
+---
+
+(script
+    (expr_statement
+        (unary_expression
+            operand: (integer_dec)
+        )
+    )
+)
+
+===========
+bitwise not 
+===========
+
+~1;
+
+---
+
+(script
+    (expr_statement
+        (unary_expression
+            operand: (integer_dec)
+        )
+    )
+)
+
+================
+prefix increment
+================
+
+++1;
+
+---
+
+(script
+    (expr_statement
+        (unary_expression
+            operand: (integer_dec)
+        )
+    )
+)
+
+================
+prefix decrement
+================
+
+--1;
+
+---
+
+(script
+    (expr_statement
+        (unary_expression
+            operand: (integer_dec)
+        )
+    )
+)
+
+================
+postfix increment
+================
+
+1++;
+
+---
+
+(script
+    (expr_statement
+        (unary_expression
+            operand: (integer_dec)
+        )
+    )
+)
+
+================
+postfix decrement
+================
+
+1--;
+
+---
+
+(script
+    (expr_statement
+        (unary_expression
+            operand: (integer_dec)
+        )
+    )
+)
+
+=========
+type cast
+=========
+
+(integer) 1;
+
+---
+
+(script
+    (expr_statement
+        (unary_expression
+            operator: (type_cast
+                type: (type)
+            )
+            operand: (integer_dec)
+        )
+    )
+)
+
+==========
+assignment
+==========
+
+x = 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (identifier)
+            right: (integer_dec)
+        )
+    )
+)
+
+===============
+assignment mult
+===============
+
+x *= 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (identifier)
+            right: (integer_dec)
+        )
+    )
+)
+
+==============
+assignment div
+==============
+
+x /= 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (identifier)
+            right: (integer_dec)
+        )
+    )
+)
+
+==============
+assignment add
+==============
+
+x += 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (identifier)
+            right: (integer_dec)
+        )
+    )
+)
+
+==============
+assignment sub
+==============
+
+x -= 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (identifier)
+            right: (integer_dec)
+        )
+    )
+)
+
+==============
+assignment mod
+==============
+
+x %= 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (identifier)
+            right: (integer_dec)
+        )
+    )
+)
+
+===========
+logical and
+===========
+
+0 && 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+==========
+logical or
+==========
+
+0 || 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+==========
+bitwise or 
+==========
+
+0 | 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+===========
+bitwise xor 
+===========
+
+0 ^ 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+===========
+bitwise and
+===========
+
+0 & 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+=========
+cmp equal
+=========
+
+0 == 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+=============
+cmp not equal
+=============
+
+0 != 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+======
+cmp lt
+======
+
+0 < 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+======
+cmp gt 
+======
+
+0 > 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+=========
+cmp lt eq 
+=========
+
+0 <= 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+=========
+cmp gt eq
+=========
+
+0 >= 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+==========
+left shift
+==========
+
+0 << 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+===========
+right shift
+===========
+
+0 >> 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+===
+add
+===
+
+0 + 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+===
+sub
+===
+
+0 - 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+===
+mul
+===
+
+0 * 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+===
+div
+===
+
+0 / 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+===
+mod
+===
+
+0 % 1;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)

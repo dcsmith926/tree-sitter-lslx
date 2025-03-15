@@ -1,0 +1,239 @@
+=====================
+function call no args
+=====================
+
+foo();
+
+---
+
+(script
+    (expr_statement
+        (function_call
+            name: (identifier)
+        )
+    )
+)
+
+=======================
+function call with args
+=======================
+
+llSay(PUBLIC_CHANNEL, "Hello, world!");
+
+---
+
+(script
+    (expr_statement
+        (function_call
+            name: (identifier)
+            arguments: (function_arguments
+                (identifier)
+                (string
+                    (unescaped_string_fragment)
+                )
+            )
+        )
+    )
+)
+
+=========================
+vector/rotation subscript
+=========================
+
+foo.x;
+
+---
+
+(script
+    (expr_statement
+        (vec_or_rot_subscript
+            variable: (identifier)
+        )
+    )
+)
+
+======
+string
+======
+
+"hello, world!";
+
+---
+
+(script
+    (expr_statement
+        (string
+            (unescaped_string_fragment)
+        )
+    )
+)
+
+================
+string w escapes 
+================
+
+"hello\nworld!";
+
+---
+
+(script
+    (expr_statement
+        (string
+            (unescaped_string_fragment)
+            (escape_sequence)
+            (unescaped_string_fragment)
+        )
+    )
+)
+
+=====
+float 
+=====
+
+1.2;
+
+---
+
+(script
+    (expr_statement
+        (float_normal)
+    )
+)
+
+================
+float scientific
+================
+
+1.2E+10;
+
+---
+
+(script
+    (expr_statement
+        (float_e)
+    )
+)
+
+===========
+integer dec
+===========
+
+123;
+
+---
+
+(script
+    (expr_statement
+        (integer_dec)
+    )
+)
+
+===========
+integer hex
+===========
+
+0x123ABC;
+
+---
+
+(script
+    (expr_statement
+        (integer_hex)
+    )
+)
+
+====
+list
+====
+
+[1, 2, 3];
+
+---
+
+(script
+    (expr_statement
+        (list
+            (integer_dec)
+            (integer_dec)
+            (integer_dec)
+        )
+    )
+)
+
+======
+vector
+======
+
+<1, 2, 3>;
+
+---
+
+(script
+    (expr_statement
+        (vector
+            x: (integer_dec)
+            y: (integer_dec)
+            z: (integer_dec)
+        )
+    )
+)
+
+========
+rotation
+========
+
+<1, 2, 3, 4>;
+
+---
+
+(script
+    (expr_statement
+        (rotation
+            x: (integer_dec)
+            y: (integer_dec)
+            z: (integer_dec)
+            w: (integer_dec)
+        )
+    )
+)
+
+========================
+parenthatical expression
+========================
+
+(1);
+
+---
+
+(script
+    (expr_statement
+        (integer_dec)
+    )
+)
+
+===================
+compound expression
+===================
+
+(2 + "foo") * (10.0 - -5);
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (binary_expression
+                left: (integer_dec)
+                right: (string
+                    (unescaped_string_fragment)
+                )
+            )
+            right: (binary_expression
+                left: (float_normal)
+                right: (unary_expression
+                    operand: (integer_dec)
+                )
+            )
+        )
+    )
+)

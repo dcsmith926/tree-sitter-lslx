@@ -1,0 +1,92 @@
+===========
+full script
+===========
+
+import foo, bar as baz from "qux.lslx";
+
+integer sum(integer a, integer b) {
+    return a + b;
+}
+
+default {
+    touch_start(integer num_detected) {
+        llOwnerSay("2 + 4 = " + (string) sum(2, 4));
+    }
+}
+
+---
+
+(script
+    (import_statement
+        (import_specifier
+            name: (identifier)
+        ) 
+        (import_specifier
+            name: (identifier)
+            alias: (identifier)
+        ) 
+        source: (string
+            (unescaped_string_fragment)
+        )
+    )
+    (function_definition
+        return_type: (type)
+        name: (identifier)
+        parameters: (parameter_list
+            (parameter
+                type: (type)
+                name: (identifier)
+            )
+            (parameter
+                type: (type)
+                name: (identifier)
+            )
+        )
+        body: (block
+            (return_statement
+                value: (binary_expression
+                    left: (identifier)
+                    right: (identifier)
+                )
+            )
+        )
+    )
+    (state_definition
+        (state_name_declaration)
+        (event_handler
+            name: (identifier)
+            parameters: (parameter_list
+                (parameter
+                    type: (type)
+                    name: (identifier)
+                )
+            )
+            body: (block
+                (expr_statement
+                    (function_call
+                        name: (identifier)
+                        arguments: (function_arguments
+                            (binary_expression
+                                left: (string
+                                    (unescaped_string_fragment)
+                                )
+                                right: (unary_expression
+                                    operator: (type_cast
+                                        type: (type)
+                                    )
+                                    operand: (function_call
+                                        name: (identifier)
+                                        arguments: (function_arguments
+                                            (integer_dec)
+                                            (integer_dec)
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )
+)

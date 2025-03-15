@@ -1,0 +1,560 @@
+============
+expression statement
+============
+
+2;
+
+---
+
+(script
+    (expr_statement
+        (integer_dec)
+    )
+)
+
+============
+unary expression statement
+============
+
+-2;
+
+---
+
+(script
+    (expr_statement
+        (unary_expression
+            operand: (integer_dec)
+        )
+    )
+)
+
+============
+binary expression statement
+============
+
+2 + 4;
+
+---
+
+(script
+    (expr_statement
+        (binary_expression
+            left: (integer_dec)
+            right: (integer_dec)
+        )
+    )
+)
+
+===================
+if statement single
+===================
+
+if (TRUE) 1;
+
+---
+
+(script
+    (if_statement
+        condition: (identifier)
+        consequence: (expr_statement
+            (integer_dec)
+        )
+    )
+)
+
+===============================
+if statement single else single
+===============================
+
+if (TRUE) 1;
+else 2;
+
+---
+
+(script
+    (if_statement
+        condition: (identifier)
+        consequence: (expr_statement
+            (integer_dec)
+        )
+        alternative: (expr_statement
+            (integer_dec)
+        )
+    )
+)
+
+==================
+if statement block
+==================
+
+if (TRUE) {
+    1;
+}
+
+---
+
+(script
+    (if_statement
+        condition: (identifier)
+        consequence: (block
+            (expr_statement
+                (integer_dec)
+            )
+        )
+    )
+)
+
+=============================
+if statement block else block
+=============================
+
+if (TRUE) {
+    1;
+}
+else {
+    2;
+}
+
+---
+
+(script
+    (if_statement
+        condition: (identifier)
+        consequence: (block
+            (expr_statement
+                (integer_dec)
+            )
+        )
+        alternative: (block
+            (expr_statement
+                (integer_dec)
+            )
+        )
+    )
+)
+
+==============================
+if statement single else block
+==============================
+
+if (TRUE) 1;
+else {
+    2;
+}
+
+---
+
+(script
+    (if_statement
+        condition: (identifier)
+        consequence: (expr_statement
+            (integer_dec)
+        )
+        alternative: (block
+            (expr_statement
+                (integer_dec)
+            )
+        )
+    )
+)
+
+==============================
+if statement block else single 
+==============================
+
+if (TRUE) {
+    1;
+}
+else 2;
+
+---
+
+(script
+    (if_statement
+        condition: (identifier)
+        consequence: (block
+            (expr_statement
+                (integer_dec)
+            )
+        )
+        alternative: (expr_statement
+            (integer_dec)
+        )
+    )
+)
+
+==========================
+if statement consequent if 
+==========================
+
+if (TRUE) 1;
+else if (FALSE) 2;
+
+---
+
+(script
+    (if_statement
+        condition: (identifier)
+        consequence: (expr_statement
+            (integer_dec)
+        )
+        alternative: (if_statement
+            condition: (identifier)
+            consequence: (expr_statement
+                (integer_dec)
+            )
+        )
+    )
+)
+
+======================
+while statement single
+======================
+
+while (TRUE) 1;
+
+---
+
+(script
+    (while_statement
+        condition: (identifier)
+        body: (expr_statement
+            (integer_dec)
+        )
+    )
+)
+
+=====================
+while statement block
+=====================
+
+while (TRUE) {
+    1;
+}
+
+---
+
+(script
+    (while_statement
+        condition: (identifier)
+        body: (block
+            (expr_statement
+                (integer_dec)
+            )
+        )
+    )
+)
+
+===================
+do statement single
+===================
+
+do 1;
+while (TRUE);
+
+---
+
+(script
+    (do_while_statement
+        body: (expr_statement
+            (integer_dec)
+        )
+        condition: (identifier)
+    )
+)
+
+==================
+do statement block
+==================
+
+do {
+    1;
+}
+while (TRUE);
+
+---
+
+(script
+    (do_while_statement
+        body: (block
+            (expr_statement
+                (integer_dec)
+            )
+        )
+        condition: (identifier)
+    )
+)
+
+====================
+for statement single
+====================
+
+for (i = 0; i < 10; i++) 1;
+
+---
+
+(script
+    (for_statement
+        initializer: (binary_expression
+            left: (identifier)
+            right: (integer_dec)
+        )
+        condition: (binary_expression
+            left: (identifier)
+            right: (integer_dec)
+        )
+        increment: (unary_expression
+            operand: (identifier)
+        )
+        body: (expr_statement
+            (integer_dec)
+        )
+    )
+)
+
+===================
+for statement block
+===================
+
+for (i = 0; i < 10; i++) {
+    1;
+}
+
+---
+
+(script
+    (for_statement
+        initializer: (binary_expression
+            left: (identifier)
+            right: (integer_dec)
+        )
+        condition: (binary_expression
+            left: (identifier)
+            right: (integer_dec)
+        )
+        increment: (unary_expression
+            operand: (identifier)
+        )
+        body: (block
+            (expr_statement
+                (integer_dec)
+            )
+        )
+    )
+)
+
+================
+switch statement
+================
+
+switch (1) {
+    case 1:
+        1;
+        break;
+    default:
+        2;
+        break;
+}
+
+---
+
+(script
+    (switch_statement
+        value: (integer_dec)
+        body: (switch_body
+            (switch_case
+                value: (integer_dec)
+                body: (switch_case_body
+                    (expr_statement
+                        (integer_dec)
+                    )
+                    (break_statement)
+                )
+            )
+            (switch_default
+                body: (switch_case_body
+                    (expr_statement
+                        (integer_dec)
+                    )
+                    (break_statement)
+                )
+            )
+        )
+    )
+)
+
+================
+continue statement
+================
+
+continue;
+
+---
+
+(script
+    (continue_statement)
+)
+
+================
+return statement
+================
+
+return;
+
+---
+
+(script
+    (return_statement)
+)
+
+===========================
+return statement with value
+===========================
+
+return 1;
+
+---
+
+(script
+    (return_statement
+        value: (integer_dec)
+    )
+)
+
+===============
+label statement
+===============
+
+@test;
+
+---
+
+(script
+    (label_statement)
+)
+
+===============
+jump statement
+===============
+
+jump test;
+
+---
+
+(script
+    (jump_statement
+        name: (identifier)
+    )
+)
+
+===============
+state change statement
+===============
+
+state test;
+
+---
+
+(script
+    (state_change_statement
+        name: (identifier)
+    )
+)
+
+====================================================
+variable declaration statement single no initializer
+====================================================
+
+integer x;
+
+---
+
+(script
+    (variable_declaration_statement
+        type: (type)
+        (variable_declarator
+            name: (identifier)
+        )
+    )
+)
+
+======================================================
+variable declaration statement multiple no initializer
+======================================================
+
+integer x, y;
+
+---
+
+(script
+    (variable_declaration_statement
+        type: (type)
+        (variable_declarator
+            name: (identifier)
+        )
+        (variable_declarator
+            name: (identifier)
+        )
+    )
+)
+
+======================================================
+variable declaration statement single with initializer
+======================================================
+
+integer x = 1;
+
+---
+
+(script
+    (variable_declaration_statement
+        type: (type)
+        (variable_declarator
+            name: (identifier)
+            value: (integer_dec)
+        )
+    )
+)
+
+========================================================
+variable declaration statement multiple with initializer
+========================================================
+
+integer x = 1, y = 2;
+
+---
+
+(script
+    (variable_declaration_statement
+        type: (type)
+        (variable_declarator
+            name: (identifier)
+            value: (integer_dec)
+        )
+        (variable_declarator
+            name: (identifier)
+            value: (integer_dec)
+        )
+    )
+)
+
+====================================================================
+variable declaration statement multiple with and without initializer
+====================================================================
+
+integer x, y = 2;
+
+---
+
+(script
+    (variable_declaration_statement
+        type: (type)
+        (variable_declarator
+            name: (identifier)
+        )
+        (variable_declarator
+            name: (identifier)
+            value: (integer_dec)
+        )
+    )
+)

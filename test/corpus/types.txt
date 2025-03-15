@@ -1,0 +1,101 @@
+=======
+integer
+=======
+
+integer x;
+
+---
+
+(script
+    (variable_declaration_statement
+        type: (type)
+        (variable_declarator
+            name: (identifier)
+        )
+    )
+)
+
+=====
+float
+=====
+
+float x;
+
+---
+
+(script
+    (variable_declaration_statement
+        type: (type)
+        (variable_declarator
+            name: (identifier)
+        )
+    )
+)
+
+======
+string
+======
+
+string x;
+
+---
+
+(script
+    (variable_declaration_statement
+        type: (type)
+        (variable_declarator
+            name: (identifier)
+        )
+    )
+)
+
+====
+list
+====
+
+list x;
+
+---
+
+(script
+    (variable_declaration_statement
+        type: (type)
+        (variable_declarator
+            name: (identifier)
+        )
+    )
+)
+
+========
+rotation
+========
+
+rotation x;
+
+---
+
+(script
+    (variable_declaration_statement
+        type: (type)
+        (variable_declarator
+            name: (identifier)
+        )
+    )
+)
+
+==========
+quaternion
+==========
+
+quaternion x;
+
+---
+
+(script
+    (variable_declaration_statement
+        type: (type)
+        (variable_declarator
+            name: (identifier)
+        )
+    )
+)
